@@ -60,6 +60,13 @@ let self = stdenv.mkDerivation rec {
       src = ./fix-paths.patch;
       inherit zenity;
     })
+
+    # Fix non-deterministic build failure:
+    # https://gitlab.gnome.org/GNOME/mutter/-/issues/1682
+    (fetchpatch {
+      url = "https://gitlab.gnome.org/GNOME/mutter/commit/91117bb052ed0d69c8ea4159c1df15c814d90627.patch";
+      sha256 = "ek8hEoPP4S2TGOm6SGGOhUVIp4OT68nz0SQzZrceFUU=";
+    })
   ];
 
   mesonFlags = [
@@ -71,9 +78,6 @@ let self = stdenv.mkDerivation rec {
     # This should be auto detected, but it looks like it manages a false
     # positive.
     "-Dxwayland_initfd=disabled"
-    # We are not running tests and building them causes non-deterministic build failure:
-    # https://gitlab.gnome.org/GNOME/mutter/-/issues/1682
-    "-Dtests=false"
   ];
 
   propagatedBuildInputs = [
@@ -152,7 +156,7 @@ let self = stdenv.mkDerivation rec {
   meta = with lib; {
     description = "A window manager for GNOME";
     homepage = "https://gitlab.gnome.org/GNOME/mutter";
-    license = licenses.gpl2;
+    license = licenses.gpl2Plus;
     maintainers = teams.gnome.members;
     platforms = platforms.linux;
   };
