@@ -19,7 +19,7 @@
 , python3
 , appstream-glib
 , spice-protocol
-, libhandy_0
+, libhandy
 , libsoup
 , libosinfo
 , systemd
@@ -99,7 +99,7 @@ stdenv.mkDerivation rec {
     libcap
     libcap_ng
     libgudev
-    libhandy_0
+    libhandy
     libosinfo
     librsvg
     libsecret
@@ -138,7 +138,7 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     description = "Simple GNOME 3 application to access remote or virtual systems";
     homepage = "https://wiki.gnome.org/Apps/Boxes";
-    license = licenses.gpl3;
+    license = licenses.lgpl2Plus;
     platforms = platforms.linux;
     maintainers = teams.gnome.members;
   };
