@@ -14,7 +14,6 @@
 , geocode-glib
 , glib
 , gnome-desktop
-, gnome-getting-started-docs
 , gnome-online-accounts
 , gtk3
 , libgweather
@@ -67,7 +66,6 @@ stdenv.mkDerivation rec {
     geocode-glib
     glib
     gnome-desktop
-    gnome-getting-started-docs
     gnome-online-accounts
     gsettings-desktop-schemas
     gtk3
