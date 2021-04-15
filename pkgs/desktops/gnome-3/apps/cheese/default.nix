@@ -19,7 +19,6 @@
 , docbook_xsl
 , appstream-glib
 , libxslt
-, yelp-tools
 , gnome-common
 , gtk-doc
 , adwaita-icon-theme
@@ -77,7 +76,6 @@ stdenv.mkDerivation rec {
     python3
     vala
     wrapGAppsHook
-    yelp-tools
   ];
 
   buildInputs = [
